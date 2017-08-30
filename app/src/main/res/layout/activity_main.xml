@@ -8,13 +8,27 @@
     tools:context="com.bawei.secandegit.MainActivity">
 
 
-    <com.bawei.secandegit.view.MyTextView
-        android:layout_width="wrap_content"
-        android:layout_height="510dp"
-        app:text="功夫都开了房间到三楼"
-        app:textcolor="#0f0"
-        app:textsize="16sp"
-        >
-    </com.bawei.secandegit.view.MyTextView>
+    <!--<com.bawei.secandegit.view.MyTextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="510dp"-->
+        <!--app:text="功夫都开了房间到三楼"-->
+        <!--app:textcolor="#0f0"-->
+        <!--app:textsize="17sp"-->
+        <!--&gt;-->
+    <!--</com.bawei.secandegit.view.MyTextView>-->
+
+    <Button
+        android:id="@+id/but1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="gethuan"
+        android:text="切换布局"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        ></android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
