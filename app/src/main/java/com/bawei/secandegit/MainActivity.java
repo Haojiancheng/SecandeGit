@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.bawei.secandegit.baseadapter.Mybaseadapter;
 import com.google.gson.Gson;
@@ -42,13 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 return 3 - position % 3 ;
             }
         });
+
         staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL );
-
-
         rview.setLayoutManager(linearLayoutManager);
-
-
-
         getHttp();
 
     }
@@ -60,8 +57,21 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(String result) {
                 Data data = new Gson().fromJson(result, Data.class);
                 list = data.getData();
-                mybaseadapter = new Mybaseadapter(list, MainActivity.this);
+                mybaseadapter = new Mybaseadapter(list,MainActivity.this);
                 rview.setAdapter(mybaseadapter);
+                mybaseadapter.setmOnClickListener(new Mybaseadapter.OnClickListener() {
+                    @Override
+                    public void onitmeClick(View view, int position) {
+                        Toast.makeText(MainActivity.this, "单击"+position, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                mybaseadapter.setmOnClickLongListener(new Mybaseadapter.OnClickLongListener() {
+                    @Override
+                    public boolean onitmeLongClick(View view, int position) {
+                        Toast.makeText(MainActivity.this, "长按"+position, Toast.LENGTH_SHORT).show();
+                        return true ;
+                    }
+                });
 
             }
 
